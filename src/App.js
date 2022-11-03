@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+
+import WithSubnavigation from './components/Menu'
+
+import LargeWithAppLinksAndSocial from './components/Footer';
+import SimpleSidebar from './components/Sidebar';
+import { Box ,Stack,useColorModeValue,} from '@chakra-ui/react'
+import Simple from './components/NewsLetter';
+import ProductSimple from './Commons/CardCar';
+import WithBackgroundImage from './components/Header';
+import ProductDetails from './Commons/ProductDetails';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Box bg={useColorModeValue('gray.100')}>
+        <WithSubnavigation/>
+{/*         <WithBackgroundImage />  
+        <Stack spacing={8} direction='row'>
+          <SimpleSidebar/>
+          <Box>
+            <ProductSimple/>
+          </Box>
+      
+        </Stack>
+
+
+        <Simple/> */}
+
+        <ProductDetails/>
+        <LargeWithAppLinksAndSocial/>
+      </Box>
     </div>
   );
 }
