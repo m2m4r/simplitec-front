@@ -97,11 +97,11 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <Flex  alignItems="start" mx="8"  justifyContent="space-evenly" direction='column'>
           <Text fontSize={"1xl"} mb='2'>Carroceria</Text>
         
-        {LinkItems.map((link) => (
-          <Checkbox key={link.name} icon={link.icon} mt={'0.5rem'}>
-            {link.name}
-          </Checkbox>
-        ))}
+          {LinkItems.map((link) => (
+            <Checkbox key={link.name} icon={link.icon} mt={'0.5rem'}>
+              {link.name}
+            </Checkbox>
+          ))}
         </Flex>
         <Flex  alignItems="start" mx="8" mt='0.5rem'  justifyContent="space-evenly" direction='column'>
           <Text fontSize={"1xl"} mb='2' mt={'0.5rem'}>Condicion</Text>
