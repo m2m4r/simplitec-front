@@ -14,6 +14,13 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    Image,
+    Divider,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    Center,
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
@@ -21,12 +28,29 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
+
+  import {  GrLocation } from "react-icons/gr";
+  import {
+    Accordion,
+    AccordionItem,
+    AccordionButton,
+    AccordionPanel,
+    AccordionIcon,
+  } from '@chakra-ui/react';
+  import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
+
+ 
+
+  import logo from '../assets/logo.svg';
+
+  
+
   
   export default function WithSubnavigation() {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
-      <Box>
+      <Box shadow={'lg'}>
         <Flex
           bg={useColorModeValue('white', 'gray.800')}
           color={useColorModeValue('gray.600', 'white')}
@@ -50,45 +74,43 @@ import {
               aria-label={'Toggle Navigation'}
             />
           </Flex>
-          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
-              Logo
-            </Text>
-  
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
-            </Flex>
+          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }} >
+           
+              <Box ml='0.5rem' display={'flex'} direction='row' justifyContent={'space-evenly'} w={'20%'} alignItems='center'>
+                <Image src={logo} h={useBreakpointValue({ base: 3, md: 5 })}/>
+                <Divider orientation='vertical' />
+                <svg stroke="currentColor" fill="#45CAFF" strokeWidth="0" viewBox="0 0 24 24" fontSize="l" color="#45CAFF" height="1.5em" width="1em" xmlns="http://www.w3.org/2000/svg" style={{color: 'rgb(69, 202, 255'}} >
+                  <path  padding='2em' fill="#45CAFF" stroke="#000" strokeWidth="0" d="M12,22 C12,22 4,16 4,10 C4,5 8,2 12,2 C16,2 20,5 20,10 C20,16 12,22 12,22 Z M12,13 C13.657,13 15,11.657 15,10 C15,8.343 13.657,7 12,7 C10.343,7 9,8.343 9,10 C9,11.657 10.343,13 12,13 L12,13 Z"></path>
+                </svg>
+
+                <LocationMenu/>
+
+              </Box>         
           </Flex>
+          <Box w={'30%'} color='black'>
+            <Stack
+              flex={{ base: 1, md: 0 }}
+              justify={'space-around'}
+              align={'center'}
+              direction={'row'}
+              spacing={6}
+             >
+
+              <Link fontSize={'xs'}>Inicio</Link>
+              <Link fontSize={'xs'}>Novedades</Link>
+              <Link fontSize={'xs'}>Últimas ofertas</Link>
+              <Link fontSize={'xs'}>Sobre nosotros</Link> 
+              <Center h={'10'}>
+                <Divider orientation='vertical' />
+
+              </Center>
+              <UserMenu/>
+            </Stack>
+
+
+
+          </Box>
   
-          <Stack
-            flex={{ base: 1, md: 0 }}
-            justify={'flex-end'}
-            direction={'row'}
-            spacing={6}>
-            <Button
-              as={'a'}
-              fontSize={'sm'}
-              fontWeight={400}
-              variant={'link'}
-              href={'#'}>
-              Sign In
-            </Button>
-            <Button
-              display={{ base: 'none', md: 'inline-flex' }}
-              fontSize={'sm'}
-              fontWeight={600}
-              color={'white'}
-              bg={'pink.400'}
-              href={'#'}
-              _hover={{
-                bg: 'pink.300',
-              }}>
-              Sign Up
-            </Button>
-          </Stack>
         </Flex>
   
         <Collapse in={isOpen} animateOpacity>
@@ -283,3 +305,34 @@ import {
       href: '#',
     },
   ];
+
+  const LocationMenu = ()=>{
+    return (
+      <Menu fontSize={'sm'} background='white'>
+        <MenuButton fontSize={'sm'} padding='0 !important' as={Button} background='white' rightIcon={<ChevronDownIcon color={"#45CAFF"} />}>
+          Buenos Aires
+        </MenuButton>
+        <MenuList  fontSize={'sm'} >
+          <MenuItem>Uruguay</MenuItem>
+          <MenuItem>España</MenuItem>
+          <MenuItem>Brasil</MenuItem>
+          <MenuItem>Chile</MenuItem>
+          
+        </MenuList>
+      </Menu>
+
+    );
+  };
+
+  const UserMenu=()=>{
+
+
+    return (
+      <Menu fontSize={'sm'} background='white' >
+        <Avatar size='sm' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' ml='0 !important' />
+        <MenuButton fontSize={'sm'} padding='0 !important' as={Button} background='white' m="0 !important" rightIcon={<ChevronDownIcon color={"#45CAFF"}/>} >
+          Martin
+        </MenuButton>
+      </Menu>
+    );
+  };

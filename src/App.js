@@ -8,6 +8,8 @@ import Simple from './components/NewsLetter';
 import ProductSimple from './Commons/CardCar';
 import WithBackgroundImage from './components/Header';
 import ProductDetails from './Commons/ProductDetails';
+import MsgThanks from './components/MsgThanks';
+import LoginForm from './components/LoginForm';
 
 function App() {
   return (
@@ -25,8 +27,11 @@ function App() {
 
 
         <Simple/> */}
+      {/* <ProductDetails/> */}
 
-        <ProductDetails/>
+      {/*   <MsgThanks/>*/}
+
+        <LoginForm/>
         <LargeWithAppLinksAndSocial/>
       </Box>
     </div>
