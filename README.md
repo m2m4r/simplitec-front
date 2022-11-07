@@ -49,13 +49,6 @@ This software uses the following open source packages:
 - [Chakra](https://chakra-ui.com/)
 
 
-
-
-MIT
-
----
-
-
 > GitHub (https://github.com/m2m4r) &nbsp;&middot;&nbsp;
 > Mail (martinezrizzimartin@gmail.com)
 
