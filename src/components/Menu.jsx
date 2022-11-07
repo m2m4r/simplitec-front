@@ -1,26 +1,18 @@
-import {
-    Box,
-    Flex,
-    Text,
-    IconButton,
-    Button,
-    Stack,
-    Collapse,
-    Icon,
-    Link,
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-    useColorModeValue,
-    useBreakpointValue,
-    useDisclosure,
-    Image,
+import {Box,Flex,Text,IconButton,Button,Stack, Collapse,Icon,Popover,PopoverTrigger,PopoverContent,useColorModeValue,useBreakpointValue,useDisclosure,Image,
     Divider,
     Menu,
     MenuButton,
     MenuList,
     MenuItem,
     Center,
+    HStack,
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalCloseButton,
+    ModalBody,
+    ModalFooter,
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
@@ -29,24 +21,17 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
 
-  import {  GrLocation } from "react-icons/gr";
-  import {
-    Accordion,
-    AccordionItem,
-    AccordionButton,
-    AccordionPanel,
-    AccordionIcon,
-  } from '@chakra-ui/react';
-  import { Avatar, AvatarBadge, AvatarGroup } from '@chakra-ui/react';
+  import { Link } from 'react-router-dom';
+  import { BsCart4 } from "react-icons/bs";
 
- 
 
+  import { Avatar } from '@chakra-ui/react';
   import logo from '../assets/logo.svg';
+import { useEffect, useState } from 'react';
+import CartCard from '../Commons/CartCard';
 
-  
 
-  
-  export default function WithSubnavigation() {
+  export default function MenuTop() {
     const { isOpen, onToggle } = useDisclosure();
   
     return (
@@ -90,17 +75,20 @@ import {
           <Box w={'30%'} color='black'>
             <Stack
               flex={{ base: 1, md: 0 }}
-              justify={'space-around'}
+              justifyContent={'normal'}
               align={'center'}
               direction={'row'}
               spacing={6}
              >
+               <HStack fontSize={'sm'} justifyContent={'space-evenly'} alignItems='flex-end'>
 
-              <Link fontSize={'xs'}>Inicio</Link>
-              <Link fontSize={'xs'}>Novedades</Link>
-              <Link fontSize={'xs'}>Últimas ofertas</Link>
-              <Link fontSize={'xs'}>Sobre nosotros</Link> 
-              <Center h={'10'}>
+                <Link to={'/home'} style={{color:'#45CAFF'}}>Inicio</Link>
+                <Link to={'/home'} >Novedades</Link>
+                <Link to={'/home'} >Últimas ofertas</Link>
+                <Link  to={'/home'}>Sobre nosotros</Link> 
+
+               </HStack>
+              <Center  h={'10'}>
                 <Divider orientation='vertical' />
 
               </Center>
@@ -326,13 +314,56 @@ import {
 
   const UserMenu=()=>{
 
+    const [user, setUser] = useState(true)
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    console.log(user)
+
+    useEffect(() => {
+  
+    }, [user])
+    
+
 
     return (
-      <Menu fontSize={'sm'} background='white' >
-        <Avatar size='sm' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' ml='0 !important' />
-        <MenuButton fontSize={'sm'} padding='0 !important' as={Button} background='white' m="0 !important" rightIcon={<ChevronDownIcon color={"#45CAFF"}/>} >
-          Martin
-        </MenuButton>
+      <Menu fontSize={'xs'} background='white' >
+        <BsCart4 onClick={onOpen} margin={'1rem'}/>
+        <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Cart</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <CartCard/>
+            
+          </ModalBody>
+
+          <ModalFooter>
+            <Button colorScheme='blue' mr={3} onClick={onClose}>
+              Close
+            </Button>
+            <Button variant='ghost' color={'#4f64c4'}>Go to Buy</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+        {user ?
+        <>
+        <HStack alignItems={'center'} justifyContent={'space-evenly'}>
+          <Avatar size='xs' name='Dan Abrahmov' src='https://bit.ly/dan-abramov' ml='0 !important' />
+            <MenuButton fontSize={'sm'} padding='0 !important' as={Button} background='white' m="0 !important" rightIcon= {<ChevronDownIcon color={"#45CAFF"}/> }>
+            Martin
+            </MenuButton>
+        </HStack>
+        </>
+          
+        :
+          <>
+          <Text color = {"#45CAFF"} m= {'0 !important'} pr='0.5rem' fontSize={'sm'}>
+          <Link   to={'/login'}>Sign in</Link>
+          </Text>
+          </>
+        }
+          
       </Menu>
-    );
+    );  
   };
