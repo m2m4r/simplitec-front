@@ -14,6 +14,7 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">Iniciar app</a> •
   <a href="#credits">Stack</a> •
+  <a href="#TODO">TO DO</a> •
 </p>
 
 ![screenshot](https://github.com/m2m4r/simplitec-front/blob/main/src/assets/demoPrint.png)
@@ -43,10 +44,15 @@ $ npm start
 
 ## Stack
 
-This software uses the following open source packages:
-
 - [React](https://es.reactjs.org/)
 - [Chakra](https://chakra-ui.com/)
+
+##To do
+
+-Services
+-Modal
+-SKeleton
+-Jwt, axios headers
 
 
 > GitHub (https://github.com/m2m4r) &nbsp;&middot;&nbsp;
