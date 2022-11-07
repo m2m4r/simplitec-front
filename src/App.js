@@ -1,38 +1,34 @@
 
-import WithSubnavigation from './components/Menu'
-
-import LargeWithAppLinksAndSocial from './components/Footer';
-import SimpleSidebar from './components/Sidebar';
+import Footer from './components/Footer';
 import { Box ,Stack,useColorModeValue,} from '@chakra-ui/react'
-import Simple from './components/NewsLetter';
-import ProductSimple from './Commons/CardCar';
-import WithBackgroundImage from './components/Header';
 import ProductDetails from './Commons/ProductDetails';
-import MsgThanks from './components/MsgThanks';
-import LoginForm from './components/LoginForm';
+import { Route, Routes } from "react-router-dom";
+import Home from "./Views/Home"
+import LoginView from "./Views/LoginView"
+import Thanks from './Views/Thanks';
+import NotFound from './Views/404';
+import MenuTop from './components/Menu';
+
+ 
 
 function App() {
+
+
+
   return (
     <div className="App">
+
+
       <Box bg={useColorModeValue('gray.100')}>
-        <WithSubnavigation/>
-{/*         <WithBackgroundImage />  
-        <Stack spacing={8} direction='row'>
-          <SimpleSidebar/>
-          <Box>
-            <ProductSimple/>
-          </Box>
-      
-        </Stack>
-
-
-        <Simple/> */}
-      {/* <ProductDetails/> */}
-
-      {/*   <MsgThanks/>*/}
-
-        <LoginForm/>
-        <LargeWithAppLinksAndSocial/>
+        <MenuTop/>
+        <Routes>
+          <Route path="home" element={<Home/>} />
+          <Route path="login" element={<LoginView/>} />
+          <Route path='product/:model' element={<ProductDetails/>}/>
+          <Route path='thanks' element={<Thanks/>}/>          
+          <Route path="/*" element={<NotFound/>} />
+        </Routes>       
+        <Footer/>
       </Box>
     </div>
   );

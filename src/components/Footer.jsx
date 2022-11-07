@@ -45,7 +45,7 @@ const SocialButton = ({children,label,href,}) => {
   );
 };
 
-export default function LargeWithAppLinksAndSocial() {
+export default function Footer() {
   return (
     <Box
       bg='#000530'
