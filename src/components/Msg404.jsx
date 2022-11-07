@@ -9,6 +9,7 @@ export default function MsgNotFound() {
             <Heading
             display="inline-block"
             as="h2"
+            color ="#000530"
             size="2xl"
             bgGradient="linear(to-r, '#000530', '#000530', '#000530')"
             backgroundClip="text">
