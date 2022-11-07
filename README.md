@@ -14,7 +14,7 @@
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">Iniciar app</a> •
   <a href="#credits">Stack</a> •
-  <a href="#TODO">TO DO</a> •
+  <a href="#ToDo">TO DO</a> •
 </p>
 
 ![screenshot](https://github.com/m2m4r/simplitec-front/blob/main/src/assets/demoPrint.png)
@@ -47,7 +47,7 @@ $ npm start
 - [React](https://es.reactjs.org/)
 - [Chakra](https://chakra-ui.com/)
 
-##To do
+## ToDo
 
 -Services
 -Modal
