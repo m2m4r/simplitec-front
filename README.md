@@ -49,10 +49,10 @@ $ npm start
 
 ## ToDo
 
--Services
--Modal
--SKeleton
--Jwt, axios headers
+- Services
+- Modal
+- SKeleton
+- Jwt, axios headers
 
 
 > GitHub (https://github.com/m2m4r) &nbsp;&middot;&nbsp;
